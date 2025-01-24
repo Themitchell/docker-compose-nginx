@@ -1,0 +1,5 @@
+config/servers/*
+config/upstreams/*
+
+!config/servers/.gitkeep
+!config/upstreams/.gitkeep

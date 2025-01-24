@@ -1,0 +1,12 @@
+---
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    network_mode: host
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/upstreams/:/etc/nginx/upstreams/
+      - ./config/servers/:/etc/nginx/servers/
+      - /var/log/nginx:/var/log/nginx
+    restart: unless-stopped
