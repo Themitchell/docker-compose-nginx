@@ -9,4 +9,11 @@ services:
       - ./config/upstreams/:/etc/nginx/upstreams/
       - ./config/servers/:/etc/nginx/servers/
       - /var/log/nginx:/var/log/nginx
+      - ./certbot/live:/etc/nginx/certs
     restart: unless-stopped
+
+  certbot:
+    image: serversideup/certbot-dns-cloudflare
+    env_file: .env
+    volumes:
+      - ./certbot:/etc/letsencrypt
